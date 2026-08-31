@@ -613,8 +613,8 @@ export const russiaColleges = [
 
 export const kyrgyzstanColleges = [
   {
-    id: "ihsm",
-    name: "International Higher School of Medicine",
+    id: "ism",
+    name: "International School of Medicine",
     location: "Bishkek, Kyrgyzstan",
     type: "International Medical School",
     recognition: "NMC / WHO / FAIMER",
@@ -624,7 +624,8 @@ export const kyrgyzstanColleges = [
     duration: "5 Years",
     medium: "English",
     eligibility: "12th with PCB + NEET",
-    annualTuitionFee: "$3,500 – $4,500 per year",
+    annualTuitionFee:
+      "1st Year: $8,000 | 2nd–5th Year: $5,500 per year",
     description:
       "International Higher School of Medicine (IHSM), Bishkek, established in 2003, is Kyrgyzstan's leading international medical school specifically designed for foreign students with 100% English-medium instruction. IHSM has its own multi-profile University Hospital and extensive clinical bases, making it a top choice for Indian medical aspirants. The university is recognized by WHO, NMC India, WDOMS and FAIMER.",
     highlights: [
@@ -651,11 +652,90 @@ export const kyrgyzstanColleges = [
       { year: "4th & 5th Year", description: "Clinical rotations in IHSM University Hospital and affiliated clinical bases" },
     ],
     fees: {
-      tuition: "$3,500 – $4,500 per year",
-      hostel: "$600 – $900 per year",
-      totalTuition: "$17,500 – $22,500 for 5 years",
+      tuition: "1st Year: $8,000 | 2nd–5th Year: $5,500 per year",
+      hostelAndMess: "₹1,20,000 per year",
+      totalTuition: "$30,000 for 5 years",
+      totalHostelAndMess: "₹6,00,000 for 5 years",
     },
-    feeNote: "Approximate INR conversion at ₹83/USD: $3,500–$4,500/year ≈ ₹2.91–3.74 Lakhs/year. Total $17,500–$22,500 ≈ ₹14.5–18.7 Lakhs for 5 years.",
+    feeNote: "1st Year: $8,000. 2nd–5th Year: $5,500 per year. Total College Fees: $30,000 for 5 years. Hostel + Mess: ₹1,20,000 per year. Total Hostel + Mess: ₹6,00,000 for 5 years.",
+    recognitionDetails: [
+      "WHO (World Health Organization)",
+      "NMC India (National Medical Commission)",
+      "WDOMS (World Directory of Medical Schools)",
+      "FAIMER (Foundation for Advancement of International Medical Education)",
+      "Ministry of Education and Science of Kyrgyz Republic",
+    ],
+    campusFacilities: [
+      "Own multi-profile University Hospital with live patient exposure",
+      "State-of-the-art simulation labs and anatomy dissection rooms",
+      "Modern lecture halls and digital learning infrastructure",
+      "Library with access to international medical journals",
+      "Sports and recreational facilities within campus",
+      "Student clubs, cultural centers and support offices",
+    ],
+    hostelFacilities: [
+      "Dedicated on-campus hostels for Indian students",
+      "Indian mess providing authentic North and South Indian meals",
+      "Furnished double and triple sharing rooms with study areas",
+      "24/7 security with warden surveillance and biometric access",
+      "Central heating and Wi-Fi internet connectivity",
+      "Laundry, housekeeping and common kitchen facilities",
+    ],
+    faqs: [
+      { q: "Is NEET mandatory for IHSM Bishkek?", a: "Yes. NEET qualification is mandatory for Indian students as per NMC India guidelines." },
+      { q: "Is IHSM recognized by NMC India?", a: "Yes. IHSM is recognized by NMC India, WHO, WDOMS and FAIMER." },
+      { q: "Does IHSM have its own hospital?", a: "Yes. IHSM has its own multi-profile University Hospital and several affiliated clinical bases for practical training." },
+      { q: "What is the total fee for MBBS at IHSM?", a: "Total tuition for 5 years is approximately $17,500–$22,500 (≈ ₹14.5–18.7 Lakhs)." },
+      { q: "Is Indian food available at IHSM?", a: "Yes. IHSM has dedicated Indian mess providing authentic Indian food for Indian students." },
+    ],
+  },
+
+  {
+    id: "ihsm",
+    name: "International Higher School of Medicine, Issyk-Kul",
+    location: "Bishkek, Kyrgyzstan",
+    type: "International Medical School",
+    recognition: "NMC / WHO / FAIMER",
+    image: ihsmImage,
+    established: "2003",
+    course: "MBBS / MD Equivalent",
+    duration: "5 Years",
+    medium: "English",
+    eligibility: "12th with PCB + NEET",
+    annualTuitionFee:
+      "1st Year: $8,200 | 2nd–5th Year: $3,800 per year",
+    description:
+      "International Higher School of Medicine (IHSM), Bishkek, established in 2003, is Kyrgyzstan's leading international medical school specifically designed for foreign students with 100% English-medium instruction. IHSM has its own multi-profile University Hospital and extensive clinical bases, making it a top choice for Indian medical aspirants. The university is recognized by WHO, NMC India, WDOMS and FAIMER.",
+    highlights: [
+      "Top Choice for Indian Students in Kyrgyzstan",
+      "100% English Medium Curriculum",
+      "Own Multi-profile Hospital and Clinical Bases",
+      "Indian Mess, Food and Dedicated Hostel Facilities",
+      "Strong Preparation for NExT / FMGE and USMLE",
+    ],
+    admission: "NEET Qualified / Direct",
+    advantages: [
+      "100% English-medium MBBS program designed for international students",
+      "Own multi-profile University Hospital for clinical training",
+      "NMC India, WHO, WDOMS and FAIMER recognized degree",
+      "Indian mess with authentic Indian food options",
+      "Dedicated comfortable hostel facilities for Indian students",
+      "Strong academic support for FMGE/NExT and USMLE preparation",
+      "Affordable total fee package with transparent fee structure",
+      "Established in 2003 with over 20 years of experience for international students",
+    ],
+    courseStructure: [
+      { year: "1st & 2nd Year", description: "Basic medical sciences — Anatomy, Physiology, Biochemistry, Histology" },
+      { year: "3rd Year", description: "Pre-clinical and clinical transition — Pathology, Pharmacology, Microbiology" },
+      { year: "4th & 5th Year", description: "Clinical rotations in IHSM University Hospital and affiliated clinical bases" },
+    ],
+    fees: {
+      tuition: "1st Year: $8,200 | 2nd–5th Year: $3,800 per year",
+      hostelAndMess: "₹1,20,000 per year",
+      totalTuition: "$23,400 for 5 years",
+      totalHostelAndMess: "₹6,00,000 for 5 years",
+    },
+    feeNote: "1st Year: $8,200. 2nd–5th Year: $3,800 per year. Total College Fees: $23,400 for 5 years. Hostel + Mess: ₹1,20,000 per year. Total Hostel + Mess: ₹6,00,000 for 5 years.",
     recognitionDetails: [
       "WHO (World Health Organization)",
       "NMC India (National Medical Commission)",
@@ -847,7 +927,8 @@ export const kyrgyzstanColleges = [
     duration: "5 to 6 Years",
     medium: "English",
     eligibility: "12th with PCB + NEET",
-    annualTuitionFee: "$3,000 – $4,000 per year",
+    annualTuitionFee:
+      "1st Year: $8,500 | 2nd–5th Year: $4,200 per year",
     description:
       "Kyrgyz State Medical Academy (KSMA), named after I.K. Akhunbaev, is Kyrgyzstan's oldest and most prestigious government medical institution founded in 1939. Located in Bishkek, KSMA is recognized as the flagship center of medical education and research in Central Asia. The academy offers a 5–6 year MBBS/MD equivalent program and has a vast clinical base with high patient inflow through its affiliated state hospitals.",
     highlights: [
@@ -874,11 +955,12 @@ export const kyrgyzstanColleges = [
       { year: "5th & 6th Year", description: "Clinical practice — Surgery, Gynecology, Pediatrics, Neurology, Psychiatry, Hospital rotations" },
     ],
     fees: {
-      tuition: "$3,000 – $4,000 per year",
-      hostel: "$500 – $700 per year",
-      totalTuition: "$15,000 – $24,000 total",
+      tuition: "1st Year: $8,500 | 2nd–5th Year: $4,200 per year",
+      hostelAndMess: "₹1,20,000 per year",
+      totalTuition: "$25,300 for 5 years",
+      totalHostelAndMess: "₹6,00,000 for 5 years",
     },
-    feeNote: "Approximate INR conversion at ₹83/USD: $3,000–$4,000/year ≈ ₹2.49–3.32 Lakhs/year. Total $15,000–$24,000 ≈ ₹12.5–19.9 Lakhs.",
+    feeNote: "1st Year: $8,500. 2nd–5th Year: $4,200 per year. Total College Fees: $25,300 for 5 years. Hostel + Mess: ₹1,20,000 per year. Total Hostel + Mess: ₹6,00,000 for 5 years.",
     recognitionDetails: [
       "WHO (World Health Organization)",
       "NMC India (National Medical Commission)",
@@ -1763,9 +1845,9 @@ export const vietnamColleges = [
 ];
 
 export const nepalColleges = [
-{
-  id: "tribhuvan-iom",
-  name: "Tribhuvan University - Institute of Medicine",
+  {
+    id: "tribhuvan-iom",
+    name: "Tribhuvan University - Institute of Medicine",
     location: "Kathmandu, Nepal",
     type: "Government Institute",
     recognition: "NMC / WHO Approved",
@@ -2087,6 +2169,7 @@ export function getCollegeDetailById(id) {
 
     // Kyrgyzstan
     "kyrgyzstan-ihsm": "ihsm",
+    "kyrgyzstan-ism": "ism",
     "kyrgyzstan-osh-state-university":
       "osh-state-university",
     "kyrgyzstan-asian-medical-institute":

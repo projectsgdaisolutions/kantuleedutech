@@ -63,7 +63,7 @@ const contactItems = [
   {
     icon: Mail,
     content: (
-      <a href="mailto:kantuleedutec@gmail.com">kantuleedutec@gmail.com</a>
+      <a href="mailto:kantuleedutech@gmail.com">kantuleedutech@gmail.com</a>
     ),
   },
 ];

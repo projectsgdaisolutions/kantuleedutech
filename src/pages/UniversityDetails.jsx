@@ -51,11 +51,18 @@ import asianMedicalInstituteImage from "../assets/images/universities/asian-medi
 
 const UNIVERSITY_IMAGE_OVERRIDES = {
 
-  // International Higher School of Medicine
+  // International Higher School of Medicine, Issyk-Kul
   ihsm:
-    "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+    "https://th.bing.com/th/id/OIP.vSeOPrF6sN5qo0WpP9k8rQHaFj?w=233&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 
   "kyrgyzstan-ihsm":
+    "https://th.bing.com/th/id/OIP.vSeOPrF6sN5qo0WpP9k8rQHaFj?w=233&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+
+  // International School of Medicine
+  ism:
+    "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+
+  "kyrgyzstan-ism":
     "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 
   // Kyrgyz State Medical Academy
@@ -77,11 +84,11 @@ const UNIVERSITY_IMAGE_OVERRIDES = {
 
   // UP Manila
   "up-manila":
-    
+
     "https://th.bing.com/th/id/OIP.cR84ZeNJRaEsg2MPc8bQ3wHaFj?w=198&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 
   "up-manila-college-of-medicine":
-    
+
     "https://th.bing.com/th/id/OIP.cR84ZeNJRaEsg2MPc8bQ3wHaFj?w=198&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 
   // ==========================================================
@@ -89,7 +96,7 @@ const UNIVERSITY_IMAGE_OVERRIDES = {
   // ==========================================================
 
   "tribhuvan-iom":
-    
+
     "https://th.bing.com/th/id/OIP.97VIS6CI6q0r8nLiqPjIqwHaFj?w=215&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 };
 
@@ -98,29 +105,6 @@ const UNIVERSITY_IMAGE_OVERRIDES = {
 // ============================================================
 
 const kyrgyzstanUniversities = [
-
-  {
-    id: "kyrgyzstan-ihsm",
-    name: "International Higher School of Medicine",
-    country: "Kyrgyzstan",
-    city: "Bishkek",
-
-    image:
-      "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-
-    fallbackImage:
-      ihsmImage,
-  },
-
-  {
-    id: "ksmu-kg",
-    name: "Kyrgyz State Medical Academy",
-    country: "Kyrgyzstan",
-    city: "Bishkek",
-
-    image:
-      "https://th.bing.com/th/id/OIP.cnbM7eiEOkgs1qI-4SusbAHaE7?w=255&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-  },
 
   {
     id: "kyrgyzstan-osh-state-university",
@@ -212,7 +196,7 @@ function getUniversityImage(
   // Exact override
   if (
     UNIVERSITY_IMAGE_OVERRIDES[
-      directId
+    directId
     ]
   ) {
     return UNIVERSITY_IMAGE_OVERRIDES[
@@ -223,7 +207,7 @@ function getUniversityImage(
   // Normalized override
   if (
     UNIVERSITY_IMAGE_OVERRIDES[
-      normalizedId
+    normalizedId
     ]
   ) {
     return UNIVERSITY_IMAGE_OVERRIDES[
@@ -278,15 +262,15 @@ function createBasicInfoFromDetail(
   const city =
     locationParts.length > 1
       ? locationParts
-          .slice(0, -1)
-          .join(", ")
+        .slice(0, -1)
+        .join(", ")
       : locationParts[0] || "";
 
   const country =
     locationParts.length > 1
       ? locationParts[
-          locationParts.length - 1
-        ]
+      locationParts.length - 1
+      ]
       : "";
 
   return {
@@ -492,6 +476,9 @@ function getTuitionForYear(
     }
 
     const laterYearMatch =
+      tuitionText.match(
+        /2nd[–-](?:5th|6th)\s*Year\s*:\s*([^|]+)/i
+      ) ||
       tuitionText.match(
         /2nd[–-]6th\s*Year\s*:\s*([^|]+)/i
       );
@@ -819,8 +806,8 @@ export default function UniversityDetails() {
 
   const displayImage =
     imageError &&
-    fallbackImage &&
-    fallbackImage !==
+      fallbackImage &&
+      fallbackImage !==
       primaryImage
       ? fallbackImage
       : primaryImage;
@@ -831,11 +818,11 @@ export default function UniversityDetails() {
 
   const displayLocation =
     basicInfo.city &&
-    basicInfo.country
+      basicInfo.country
       ? `${basicInfo.city}, ${basicInfo.country}`
       : detailInfo.location ||
-        basicInfo.country ||
-        "Location not available";
+      basicInfo.country ||
+      "Location not available";
 
   // ==========================================================
   // WHATSAPP
@@ -878,7 +865,7 @@ export default function UniversityDetails() {
       if (
         fallbackImage &&
         fallbackImage !==
-          primaryImage
+        primaryImage
       ) {
 
         setImageError(
@@ -1157,163 +1144,163 @@ export default function UniversityDetails() {
             {detailInfo.highlights?.length >
               0 && (
 
-              <SectionCard
-                title="Key Highlights"
-                icon={
-                  CheckCircle2
-                }
-              >
+                <SectionCard
+                  title="Key Highlights"
+                  icon={
+                    CheckCircle2
+                  }
+                >
 
-                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
 
-                  {detailInfo.highlights.map(
-                    (
-                      item,
-                      index
-                    ) => (
+                    {detailInfo.highlights.map(
+                      (
+                        item,
+                        index
+                      ) => (
 
-                      <div
-                        key={index}
-                        className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
-                      >
+                        <div
+                          key={index}
+                          className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
+                        >
 
-                        <CheckCircle2
-                          size={17}
-                          className="text-[#18B8D4] shrink-0 mt-0.5"
-                        />
+                          <CheckCircle2
+                            size={17}
+                            className="text-[#18B8D4] shrink-0 mt-0.5"
+                          />
 
-                        <span className="text-sm text-slate-600">
-                          {item}
-                        </span>
+                          <span className="text-sm text-slate-600">
+                            {item}
+                          </span>
 
-                      </div>
+                        </div>
 
-                    )
-                  )}
+                      )
+                    )}
 
-                </div>
+                  </div>
 
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
             {/* ADVANTAGES */}
 
             {detailInfo.advantages?.length >
               0 && (
 
-              <SectionCard
-                title="Advantages"
-                icon={Shield}
-              >
+                <SectionCard
+                  title="Advantages"
+                  icon={Shield}
+                >
 
-                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
 
-                  {detailInfo.advantages.map(
-                    (
-                      item,
-                      index
-                    ) => (
+                    {detailInfo.advantages.map(
+                      (
+                        item,
+                        index
+                      ) => (
 
-                      <div
-                        key={index}
-                        className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
-                      >
+                        <div
+                          key={index}
+                          className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
+                        >
 
-                        <CheckCircle2
-                          size={17}
-                          className="text-[#18B8D4] shrink-0 mt-0.5"
-                        />
+                          <CheckCircle2
+                            size={17}
+                            className="text-[#18B8D4] shrink-0 mt-0.5"
+                          />
 
-                        <span className="text-sm text-slate-600">
-                          {item}
-                        </span>
+                          <span className="text-sm text-slate-600">
+                            {item}
+                          </span>
 
-                      </div>
+                        </div>
 
-                    )
-                  )}
+                      )
+                    )}
 
-                </div>
+                  </div>
 
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
             {/* COURSE STRUCTURE */}
 
             {detailInfo.courseStructure?.length >
               0 && (
 
-              <SectionCard
-                title="Course Structure"
-                icon={
-                  GraduationCap
-                }
-              >
+                <SectionCard
+                  title="Course Structure"
+                  icon={
+                    GraduationCap
+                  }
+                >
 
-                {detailInfo.courseStructureDescription && (
-                  <p className="text-sm text-slate-600 leading-relaxed mb-5">
+                  {detailInfo.courseStructureDescription && (
+                    <p className="text-sm text-slate-600 leading-relaxed mb-5">
 
-                    {
-                      detailInfo.courseStructureDescription
-                    }
+                      {
+                        detailInfo.courseStructureDescription
+                      }
 
-                  </p>
-                )}
+                    </p>
+                  )}
 
-                <div className="space-y-3">
+                  <div className="space-y-3">
 
-                  {detailInfo.courseStructure.map(
-                    (
-                      item,
-                      index
-                    ) => (
+                    {detailInfo.courseStructure.map(
+                      (
+                        item,
+                        index
+                      ) => (
 
-                      <div
-                        key={index}
-                        className="rounded-xl border border-slate-100 bg-slate-50 p-4"
-                      >
+                        <div
+                          key={index}
+                          className="rounded-xl border border-slate-100 bg-slate-50 p-4"
+                        >
 
-                        <div className="flex items-start gap-3">
+                          <div className="flex items-start gap-3">
 
-                          <div className="w-10 h-10 rounded-lg bg-[#eef7fc] text-[#1455A0] flex items-center justify-center shrink-0">
+                            <div className="w-10 h-10 rounded-lg bg-[#eef7fc] text-[#1455A0] flex items-center justify-center shrink-0">
 
-                            <BookOpen
-                              size={17}
-                            />
+                              <BookOpen
+                                size={17}
+                              />
 
-                          </div>
+                            </div>
 
-                          <div>
+                            <div>
 
-                            <p className="text-sm font-extrabold text-[#0B2D5C]">
+                              <p className="text-sm font-extrabold text-[#0B2D5C]">
 
-                              {
-                                item.year
-                              }
+                                {
+                                  item.year
+                                }
 
-                            </p>
+                              </p>
 
-                            <p className="mt-1 text-sm text-slate-600 leading-relaxed">
+                              <p className="mt-1 text-sm text-slate-600 leading-relaxed">
 
-                              {
-                                item.description
-                              }
+                                {
+                                  item.description
+                                }
 
-                            </p>
+                              </p>
+
+                            </div>
 
                           </div>
 
                         </div>
 
-                      </div>
+                      )
+                    )}
 
-                    )
-                  )}
+                  </div>
 
-                </div>
-
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
             {/* YEAR WISE TUITION */}
 
@@ -1321,498 +1308,428 @@ export default function UniversityDetails() {
               detailInfo
             ) && (
 
-              <SectionCard
-                title="Year-wise Tuition"
-                icon={
-                  WalletCards
-                }
-              >
+                <SectionCard
+                  title="Year-wise Tuition"
+                  icon={
+                    WalletCards
+                  }
+                >
 
-                <div className="overflow-x-auto -mx-1 px-1">
+                  <div className="overflow-x-auto -mx-1 px-1">
 
-                  <table className="w-full min-w-[520px] border-collapse">
+                    <table className="w-full min-w-[520px] border-collapse">
 
-                    <thead>
+                      <thead>
 
-                      <tr className="border-b border-slate-200">
+                        <tr className="border-b border-slate-200">
 
-                        <th className="px-3 py-3 text-left text-[11px] sm:text-xs font-extrabold text-slate-500 uppercase tracking-wide">
-                          Year
-                        </th>
+                          <th className="px-3 py-3 text-left text-[11px] sm:text-xs font-extrabold text-slate-500 uppercase tracking-wide">
+                            Year
+                          </th>
 
-                        <th className="px-3 py-3 text-right text-[11px] sm:text-xs font-extrabold text-slate-500 uppercase tracking-wide">
-                          College Fees
-                        </th>
+                          <th className="px-3 py-3 text-right text-[11px] sm:text-xs font-extrabold text-slate-500 uppercase tracking-wide">
+                            College Fees
+                          </th>
 
-                        <th className="px-3 py-3 text-right text-[11px] sm:text-xs font-extrabold text-slate-500 uppercase tracking-wide">
-                          Hostel + Mess
-                        </th>
+                          <th className="px-3 py-3 text-right text-[11px] sm:text-xs font-extrabold text-slate-500 uppercase tracking-wide">
+                            Hostel + Mess
+                          </th>
 
-                      </tr>
+                        </tr>
 
-                    </thead>
+                      </thead>
 
-                    <tbody>
+                      <tbody>
 
-                      {Array.from({
-                        length:
-                          yearCount,
-                      }).map(
-                        (
-                          _,
-                          index
-                        ) => {
+                        {Array.from({
+                          length:
+                            yearCount,
+                        }).map(
+                          (
+                            _,
+                            index
+                          ) => {
 
-                          const year =
-                            index + 1;
+                            const year =
+                              index + 1;
 
-                          const collegeFee =
-                            getCollegeFeeForYear(
-                              detailInfo,
-                              year
-                            );
-
-                          const hostelAndMess =
-                            getHostelAndMessForYear(
-                              detailInfo
-                            );
-
-                          if (
-                            !collegeFee &&
-                            !hostelAndMess
-                          ) {
-                            return null;
-                          }
-
-                          return (
-                            <tr
-                              key={
+                            const collegeFee =
+                              getCollegeFeeForYear(
+                                detailInfo,
                                 year
-                              }
-                              className="border-b border-slate-100 last:border-0"
-                            >
+                              );
 
-                              <td className="px-3 py-4 text-sm font-extrabold text-[#0B2D5C] whitespace-nowrap">
-                                {
-                                  getYearLabel(
-                                    year
-                                  )
-                                }
-                              </td>
+                            const hostelAndMess =
+                              getHostelAndMessForYear(
+                                detailInfo
+                              );
 
-                              <td className="px-3 py-4 text-right text-sm font-bold text-[#1455A0] whitespace-nowrap">
-
-                                {collegeFee ? (
-                                  <FeeWithINR
-                                    value={
-                                      collegeFee
-                                    }
-                                  />
-                                ) : (
-                                  "—"
-                                )}
-
-                              </td>
-
-                              <td className="px-3 py-4 text-right text-sm font-bold text-[#1455A0] whitespace-nowrap">
-
-                                {hostelAndMess ? (
-                                  hostelAndMess
-                                ) : (
-                                  "—"
-                                )}
-
-                              </td>
-
-                            </tr>
-                          );
-                        }
-                      )}
-
-                    </tbody>
-
-                  </table>
-
-                </div>
-
-              </SectionCard>
-            )}
-
-            {/* FEE STRUCTURE */}
-
-            {detailInfo.fees && (
-
-              <SectionCard
-                title="Fee Structure"
-                icon={
-                  WalletCards
-                }
-              >
-
-                <div className="grid sm:grid-cols-2 gap-4">
-
-                  {Object.entries(
-                    detailInfo.fees
-                  ).map(
-                    (
-                      [
-                        key,
-                        value,
-                      ]
-                    ) => (
-
-                      <div
-                        key={key}
-                        className="rounded-xl bg-slate-50 border border-slate-100 p-4"
-                      >
-
-                        <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-1">
-
-                          {key
-                            .replace(
-                              /([A-Z])/g,
-                              " $1"
-                            )
-                            .trim()}
-
-                        </span>
-
-                        <div className="text-sm font-bold text-[#0B2D5C]">
-
-                          <FeeWithINR
-                            value={
-                              value
+                            if (
+                              !collegeFee &&
+                              !hostelAndMess
+                            ) {
+                              return null;
                             }
-                          />
 
-                        </div>
+                            return (
+                              <tr
+                                key={
+                                  year
+                                }
+                                className="border-b border-slate-100 last:border-0"
+                              >
 
-                      </div>
+                                <td className="px-3 py-4 text-sm font-extrabold text-[#0B2D5C] whitespace-nowrap">
+                                  {
+                                    getYearLabel(
+                                      year
+                                    )
+                                  }
+                                </td>
 
-                    )
-                  )}
+                                <td className="px-3 py-4 text-right text-sm font-bold text-[#1455A0] whitespace-nowrap">
 
-                </div>
+                                  {collegeFee ? (
+                                    <FeeWithINR
+                                      value={
+                                        collegeFee
+                                      }
+                                    />
+                                  ) : (
+                                    "—"
+                                  )}
 
-                {detailInfo.feeNote && (
+                                </td>
 
-                  <p className="mt-5 text-xs sm:text-sm text-slate-500 leading-relaxed bg-[#f8fbfe] rounded-xl p-4 border border-[#e2edf8]">
+                                <td className="px-3 py-4 text-right text-sm font-bold text-[#1455A0] whitespace-nowrap">
 
-                    {
-                      detailInfo.feeNote
-                    }
+                                  {hostelAndMess ? (
+                                    hostelAndMess
+                                  ) : (
+                                    "—"
+                                  )}
 
-                  </p>
+                                </td>
 
-                )}
+                              </tr>
+                            );
+                          }
+                        )}
 
-              </SectionCard>
-            )}
+                      </tbody>
+
+                    </table>
+
+                  </div>
+
+                </SectionCard>
+              )}
+
 
             {/* RECOGNITION */}
 
             {detailInfo.recognitionDetails?.length >
               0 && (
 
-              <SectionCard
-                title="Recognition & Accreditation"
-                icon={Shield}
-              >
+                <SectionCard
+                  title="Recognition & Accreditation"
+                  icon={Shield}
+                >
 
-                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
 
-                  {detailInfo.recognitionDetails.map(
-                    (
-                      item,
-                      index
-                    ) => (
+                    {detailInfo.recognitionDetails.map(
+                      (
+                        item,
+                        index
+                      ) => (
 
-                      <div
-                        key={index}
-                        className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
-                      >
+                        <div
+                          key={index}
+                          className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
+                        >
 
-                        <CheckCircle2
-                          size={17}
-                          className="text-[#18B8D4] shrink-0 mt-0.5"
-                        />
+                          <CheckCircle2
+                            size={17}
+                            className="text-[#18B8D4] shrink-0 mt-0.5"
+                          />
 
-                        <span className="text-sm text-slate-600">
-                          {item}
-                        </span>
+                          <span className="text-sm text-slate-600">
+                            {item}
+                          </span>
 
-                      </div>
+                        </div>
 
-                    )
-                  )}
+                      )
+                    )}
 
-                </div>
+                  </div>
 
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
             {/* CAMPUS */}
 
             {detailInfo.campusFacilities?.length >
               0 && (
 
-              <SectionCard
-                title="Campus Facilities"
-                icon={
-                  Building2
-                }
-              >
+                <SectionCard
+                  title="Campus Facilities"
+                  icon={
+                    Building2
+                  }
+                >
 
-                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
 
-                  {detailInfo.campusFacilities.map(
-                    (
-                      item,
-                      index
-                    ) => (
+                    {detailInfo.campusFacilities.map(
+                      (
+                        item,
+                        index
+                      ) => (
 
-                      <div
-                        key={index}
-                        className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
-                      >
+                        <div
+                          key={index}
+                          className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
+                        >
 
-                        <CheckCircle2
-                          size={17}
-                          className="text-[#18B8D4] shrink-0 mt-0.5"
-                        />
+                          <CheckCircle2
+                            size={17}
+                            className="text-[#18B8D4] shrink-0 mt-0.5"
+                          />
 
-                        <span className="text-sm text-slate-600">
-                          {item}
-                        </span>
+                          <span className="text-sm text-slate-600">
+                            {item}
+                          </span>
 
-                      </div>
+                        </div>
 
-                    )
-                  )}
+                      )
+                    )}
 
-                </div>
+                  </div>
 
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
             {/* HOSTEL */}
 
             {detailInfo.hostelFacilities?.length >
               0 && (
 
-              <SectionCard
-                title="Hostel Facilities"
-                icon={
-                  Building2
-                }
-              >
+                <SectionCard
+                  title="Hostel Facilities"
+                  icon={
+                    Building2
+                  }
+                >
 
-                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
 
-                  {detailInfo.hostelFacilities.map(
-                    (
-                      item,
-                      index
-                    ) => (
+                    {detailInfo.hostelFacilities.map(
+                      (
+                        item,
+                        index
+                      ) => (
 
-                      <div
-                        key={index}
-                        className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
-                      >
+                        <div
+                          key={index}
+                          className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100"
+                        >
 
-                        <CheckCircle2
-                          size={17}
-                          className="text-[#18B8D4] shrink-0 mt-0.5"
-                        />
+                          <CheckCircle2
+                            size={17}
+                            className="text-[#18B8D4] shrink-0 mt-0.5"
+                          />
 
-                        <span className="text-sm text-slate-600">
-                          {item}
-                        </span>
+                          <span className="text-sm text-slate-600">
+                            {item}
+                          </span>
 
-                      </div>
+                        </div>
 
-                    )
-                  )}
+                      )
+                    )}
 
-                </div>
+                  </div>
 
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
             {/* STAFF */}
 
             {detailInfo.staff?.length >
               0 && (
 
-              <SectionCard
-                title="Staff"
-                icon={
-                  GraduationCap
-                }
-              >
+                <SectionCard
+                  title="Staff"
+                  icon={
+                    GraduationCap
+                  }
+                >
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
 
-                  {detailInfo.staff.map(
-                    (
-                      member,
-                      index
-                    ) => (
+                    {detailInfo.staff.map(
+                      (
+                        member,
+                        index
+                      ) => (
 
-                      <div
-                        key={`${member.name}-${index}`}
-                        className="rounded-2xl overflow-hidden bg-slate-50 border border-slate-100"
-                      >
+                        <div
+                          key={`${member.name}-${index}`}
+                          className="rounded-2xl overflow-hidden bg-slate-50 border border-slate-100"
+                        >
 
-                        {member.image && (
-                          <img
-                            src={
-                              member.image
-                            }
-                            alt={
-                              member.name
-                            }
-                            loading="lazy"
-                            className="w-full aspect-square object-cover"
-                          />
-                        )}
+                          {member.image && (
+                            <img
+                              src={
+                                member.image
+                              }
+                              alt={
+                                member.name
+                              }
+                              loading="lazy"
+                              className="w-full aspect-square object-cover"
+                            />
+                          )}
 
-                        <div className="p-3">
+                          <div className="p-3">
 
-                          <p className="text-sm font-bold text-[#0B2D5C] leading-snug">
+                            <p className="text-sm font-bold text-[#0B2D5C] leading-snug">
 
-                            {
-                              member.name
-                            }
+                              {
+                                member.name
+                              }
 
-                          </p>
+                            </p>
 
-                          <p className="mt-1 text-xs text-slate-500 leading-5">
+                            <p className="mt-1 text-xs text-slate-500 leading-5">
 
-                            {
-                              member.role
-                            }
+                              {
+                                member.role
+                              }
 
-                          </p>
+                            </p>
+
+                          </div>
 
                         </div>
 
-                      </div>
+                      )
+                    )}
 
-                    )
-                  )}
+                  </div>
 
-                </div>
-
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
             {/* GALLERY */}
 
             {galleryImages.length >
               0 && (
 
-              <SectionCard
-                title="University Gallery"
-                icon={
-                  Images
-                }
-              >
+                <SectionCard
+                  title="University Gallery"
+                  icon={
+                    Images
+                  }
+                >
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
 
-                  {galleryImages.map(
-                    (
-                      image,
-                      index
-                    ) => (
+                    {galleryImages.map(
+                      (
+                        image,
+                        index
+                      ) => (
 
-                      <button
-                        key={`${image}-${index}`}
-                        type="button"
-                        onClick={() =>
-                          setActiveGalleryImage(
-                            image
-                          )
-                        }
-                        className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 aspect-[4/3]"
-                      >
+                        <button
+                          key={`${image}-${index}`}
+                          type="button"
+                          onClick={() =>
+                            setActiveGalleryImage(
+                              image
+                            )
+                          }
+                          className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 aspect-[4/3]"
+                        >
 
-                        <img
-                          src={image}
-                          alt={`${basicInfo.name} gallery ${index + 1}`}
-                          loading="lazy"
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
+                          <img
+                            src={image}
+                            alt={`${basicInfo.name} gallery ${index + 1}`}
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
 
-                      </button>
+                        </button>
 
-                    )
-                  )}
+                      )
+                    )}
 
-                </div>
+                  </div>
 
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
             {/* FAQ */}
 
             {detailInfo.faqs?.length >
               0 && (
 
-              <SectionCard
-                title="Frequently Asked Questions"
-                icon={
-                  ClipboardCheck
-                }
-              >
+                <SectionCard
+                  title="Frequently Asked Questions"
+                  icon={
+                    ClipboardCheck
+                  }
+                >
 
-                <div className="space-y-3">
+                  <div className="space-y-3">
 
-                  {detailInfo.faqs.map(
-                    (
-                      faq,
-                      index
-                    ) => (
+                    {detailInfo.faqs.map(
+                      (
+                        faq,
+                        index
+                      ) => (
 
-                      <details
-                        key={index}
-                        className="group rounded-xl border border-slate-100 bg-slate-50 p-4"
-                      >
+                        <details
+                          key={index}
+                          className="group rounded-xl border border-slate-100 bg-slate-50 p-4"
+                        >
 
-                        <summary className="cursor-pointer list-none flex items-start justify-between gap-4">
+                          <summary className="cursor-pointer list-none flex items-start justify-between gap-4">
 
-                          <span className="text-sm font-bold text-[#0B2D5C]">
+                            <span className="text-sm font-bold text-[#0B2D5C]">
+
+                              {
+                                faq.q
+                              }
+
+                            </span>
+
+                            <span className="text-[#18B8D4] text-lg leading-none">
+                              +
+                            </span>
+
+                          </summary>
+
+                          <p className="mt-3 text-sm text-slate-600 leading-relaxed">
 
                             {
-                              faq.q
+                              faq.a
                             }
 
-                          </span>
+                          </p>
 
-                          <span className="text-[#18B8D4] text-lg leading-none">
-                            +
-                          </span>
+                        </details>
 
-                        </summary>
+                      )
+                    )}
 
-                        <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                  </div>
 
-                          {
-                            faq.a
-                          }
-
-                        </p>
-
-                      </details>
-
-                    )
-                  )}
-
-                </div>
-
-              </SectionCard>
-            )}
+                </SectionCard>
+              )}
 
           </motion.div>
 
@@ -1881,35 +1798,35 @@ export default function UniversityDetails() {
                 {(detailInfo.duration ||
                   detailInfo.courseDuration) && (
 
-                  <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                    <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-xl border border-slate-100">
 
-                    <div className="w-10 h-10 rounded-lg bg-[#eef7fc] text-[#1455A0] flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-[#eef7fc] text-[#1455A0] flex items-center justify-center shrink-0">
 
-                      <Clock
-                        size={18}
-                      />
+                        <Clock
+                          size={18}
+                        />
+
+                      </div>
+
+                      <div>
+
+                        <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                          Duration
+                        </span>
+
+                        <span className="text-sm font-bold text-[#0B2D5C]">
+
+                          {
+                            detailInfo.duration ||
+                            detailInfo.courseDuration
+                          }
+
+                        </span>
+
+                      </div>
 
                     </div>
-
-                    <div>
-
-                      <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                        Duration
-                      </span>
-
-                      <span className="text-sm font-bold text-[#0B2D5C]">
-
-                        {
-                          detailInfo.duration ||
-                          detailInfo.courseDuration
-                        }
-
-                      </span>
-
-                    </div>
-
-                  </div>
-                )}
+                  )}
 
                 {detailInfo.medium && (
                   <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-xl border border-slate-100">
@@ -2001,37 +1918,6 @@ export default function UniversityDetails() {
                   </div>
                 )}
 
-                {detailInfo.annualTuitionFee && (
-                  <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-xl border border-slate-100">
-
-                    <div className="w-10 h-10 rounded-lg bg-[#eef7fc] text-[#1455A0] flex items-center justify-center shrink-0">
-
-                      <WalletCards
-                        size={18}
-                      />
-
-                    </div>
-
-                    <div>
-
-                      <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                        Annual Tuition
-                      </span>
-
-                      <span className="text-sm font-bold text-[#0B2D5C]">
-
-                        <FeeWithINR
-                          value={
-                            detailInfo.annualTuitionFee
-                          }
-                        />
-
-                      </span>
-
-                    </div>
-
-                  </div>
-                )}
 
               </div>
 
@@ -2069,7 +1955,7 @@ export default function UniversityDetails() {
                 </Link>
 
                 <a
-                  href={`https://wa.me/919876543210?text=${whatsappMsg}`}
+                  href={`https://wa.me/918830451660?text=${whatsappMsg}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#25D366] hover:bg-[#1fb855] text-white text-xs sm:text-sm font-bold shadow-md transition-all duration-200"

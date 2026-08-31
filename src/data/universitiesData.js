@@ -74,12 +74,21 @@ export const universitiesData = [
   // ============================================================
 
   {
-    id: "ihsm",
-    name: "International Higher School of Medicine",
+    id: "ism",
+    name: "International School of Medicine",
     country: "Kyrgyzstan",
     city: "Bishkek",
     image:
       "https://www.udaanedutech.in/assets/images/udaan/university/ihsm/ihsm1.webp",
+  },
+
+  {
+    id: "ihsm",
+    name: "International Higher School of Medicine, Issyk-Kul",
+    country: "Kyrgyzstan",
+    city: "Bishkek",
+    image:
+      "https://th.bing.com/th/id/OIP.vSeOPrF6sN5qo0WpP9k8rQHaFj?w=233&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
   },
 
   {

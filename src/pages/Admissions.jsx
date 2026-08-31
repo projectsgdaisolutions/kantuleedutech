@@ -593,7 +593,7 @@ Interested In: ${form.interestedIn}`;
                   label="Mobile Number (WhatsApp) *"
                   name="mobile"
                   type="tel"
-                  placeholder="e.g. 9876543210"
+                  placeholder="e.g. 8830451660"
                   value={form.mobile}
                   onChange={handleChange}
                 />
