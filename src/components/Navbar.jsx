@@ -39,6 +39,7 @@ function Navbar() {
     } else {
       document.body.style.overflow = "unset";
     }
+
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -69,17 +70,27 @@ function Navbar() {
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="flex h-[72px] items-center justify-between lg:h-[88px]">
 
-            {/* LOGO */}
+            {/* LOGO + KANTULE EDUTECH NAME */}
             <Link
               to="/"
               onClick={closeMobile}
-              className="shrink-0 transition-transform duration-300 hover:scale-[1.02] z-10"
+              className="z-10 flex shrink-0 items-center gap-3 transition-transform duration-300 hover:scale-[1.02]"
             >
               <img
                 src={logo}
                 alt="Kantule Edutech"
                 className="h-[52px] w-auto object-contain sm:h-[60px] lg:h-[72px]"
               />
+
+              {/* Added Kantule Edutech Name */}
+             <div className="flex flex-col leading-none">
+  <span className="font-serif text-[17px] font-extrabold tracking-[0.08em] text-[#C62828] sm:text-[19px] lg:text-[23px]">
+    KANTULE
+  </span>
+
+  <span className="font-serif text-[17px] font-extrabold tracking-[0.08em] text-[#C62828] sm:text-[19px] lg:text-[23px]">    EDUTECH
+  </span>
+</div>
             </Link>
 
             {/* DESKTOP NAV */}
@@ -104,7 +115,10 @@ function Navbar() {
               >
                 <MessageCircle size={16} className="text-[#16B9D9]" />
                 Book Free Counselling
-                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight
+                  size={15}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
               </Link>
             </div>
 
@@ -112,7 +126,7 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-[#082F5B] shadow-sm transition-colors hover:bg-slate-50 lg:hidden z-10"
+              className="z-10 flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-[#082F5B] shadow-sm transition-colors hover:bg-slate-50 lg:hidden"
               aria-label="Open menu"
             >
               <Menu size={22} strokeWidth={2} />
@@ -145,11 +159,19 @@ function Navbar() {
             >
               {/* DRAWER HEADER */}
               <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
-                <img
-                  src={logo}
-                  alt="Kantule Edutech"
-                  className="h-12 w-auto object-contain"
-                />
+                <div className="flex items-center gap-3">
+                  <img
+                    src={logo}
+                    alt="Kantule Edutech"
+                    className="h-12 w-auto object-contain"
+                  />
+
+                  {/* Added Kantule Edutech Name */}
+                  <span className="text-[15px] font-bold tracking-wide text-red-600">
+                    KANTULE EDUTECH
+                  </span>
+                </div>
+
                 <button
                   type="button"
                   onClick={closeMobile}
@@ -168,8 +190,11 @@ function Navbar() {
                   animate="visible"
                   variants={{
                     visible: {
-                      transition: { staggerChildren: 0.06, delayChildren: 0.1 }
-                    }
+                      transition: {
+                        staggerChildren: 0.06,
+                        delayChildren: 0.1,
+                      },
+                    },
                   }}
                 >
                   {navLinks.map((link) => (
@@ -193,7 +218,10 @@ function Navbar() {
                 >
                   <MessageCircle size={18} />
                   Book Free Counselling
-                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
                 </Link>
               </div>
             </motion.div>
@@ -210,14 +238,22 @@ function NavLink({ to, label, active }) {
       to={to}
       className="group relative flex items-center px-4 py-2 text-[13.5px] font-semibold transition-colors"
     >
-      <span className={`relative z-10 ${active ? "text-[#0B5EA8]" : "text-slate-600 group-hover:text-[#082F5B]"}`}>
+      <span
+        className={`relative z-10 ${
+          active
+            ? "text-[#0B5EA8]"
+            : "text-slate-600 group-hover:text-[#082F5B]"
+        }`}
+      >
         {label}
       </span>
-      
+
       {/* Animated Underline */}
-      <span 
+      <span
         className={`absolute bottom-0 left-1/2 h-[3px] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#0B8FD3] to-[#16B9D9] transition-all duration-300 ease-out ${
-          active ? "w-1/2 opacity-100" : "w-0 opacity-0 group-hover:w-1/2 group-hover:opacity-100"
+          active
+            ? "w-1/2 opacity-100"
+            : "w-0 opacity-0 group-hover:w-1/2 group-hover:opacity-100"
         }`}
       />
     </Link>
@@ -229,9 +265,12 @@ function MobileLink({ to, label, active, onClick }) {
     <motion.div
       variants={{
         hidden: { opacity: 0, x: 20 },
-        visible: { opacity: 1, x: 0 }
+        visible: { opacity: 1, x: 0 },
       }}
-      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: 0.3,
+        ease: [0.22, 1, 0.36, 1],
+      }}
     >
       <Link
         to={to}
@@ -243,11 +282,11 @@ function MobileLink({ to, label, active, onClick }) {
         }`}
       >
         <span className="text-[15px] font-semibold">{label}</span>
-        
-        <span 
+
+        <span
           className={`flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 ${
-            active 
-              ? "bg-white/20 text-white" 
+            active
+              ? "bg-white/20 text-white"
               : "bg-slate-100 text-slate-400 group-hover:bg-[#0B8FD3] group-hover:text-white"
           }`}
         >

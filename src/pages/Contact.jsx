@@ -1095,8 +1095,8 @@ I would like to get free MBBS counselling.`;
                       <small>Official Email</small>
 
                       <p>
-                        <a href="mailto:kantuleedutec@gmail.com">
-                          kantuleedutec@gmail.com
+                        <a href="mailto:kantuleedutech@gmail.com">
+                          kantuleedutech@gmail.com
                         </a>
                       </p>
                     </div>
@@ -1178,7 +1178,7 @@ I would like to get free MBBS counselling.`;
                       id="mobile"
                       name="mobile"
                       type="tel"
-                      placeholder="e.g. 9876543210"
+                      placeholder="e.g. 8830451660"
                       required
                     />
                   </div>
@@ -1443,13 +1443,13 @@ I would like to get free MBBS counselling.`;
 
                 <p>
                   <a
-                    href="mailto:kantuleedutec@gmail.com"
+                    href="mailto:kantuleedutech@gmail.com"
                     style={{
                       color: "inherit",
                       textDecoration: "none",
                     }}
                   >
-                    kantuleedutec@gmail.com
+                    kantuleedutech@gmail.com
                   </a>
                 </p>
               </motion.div>
@@ -1505,13 +1505,13 @@ I would like to get free MBBS counselling.`;
                 <div className="social-row">
 
                   <a
-                    href="https://www.instagram.com/kantuleedutech/"
+                    href="https://www.instagram.com/kantuleedutechh/"
                     target="_blank"
                     rel="noreferrer"
                     className="social-link-item"
                   >
                     <FaInstagram size={14} />
-                    @kantuleedutech
+                    @kantuleedutechh
                   </a>
 
                   <a

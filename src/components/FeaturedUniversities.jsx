@@ -31,11 +31,18 @@ import asianMedicalInstituteImage from "../assets/images/universities/asian-medi
 // =========================================================
 
 const UNIVERSITY_IMAGE_OVERRIDES = {
-  // International Higher School of Medicine
+  // International Higher School of Medicine, Issyk-Kul
   ihsm:
-    "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+    "https://th.bing.com/th/id/OIP.vSeOPrF6sN5qo0WpP9k8rQHaFj?w=233&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 
   "kyrgyzstan-ihsm":
+    "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+
+  // International School of Medicine
+  ism:
+    "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+
+  "kyrgyzstan-ism":
     "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 
   // Kyrgyz State Medical Academy
@@ -57,11 +64,11 @@ const UNIVERSITY_IMAGE_OVERRIDES = {
 
   // University of the Philippines Manila
   "up-manila":
-    
+
     "https://th.bing.com/th/id/OIP.cR84ZeNJRaEsg2MPc8bQ3wHaFj?w=198&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 
   "up-manila-college-of-medicine":
-    
+
     "https://th.bing.com/th/id/OIP.cR84ZeNJRaEsg2MPc8bQ3wHaFj?w=198&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 
   // =======================================================
@@ -72,7 +79,7 @@ const UNIVERSITY_IMAGE_OVERRIDES = {
   // tribhuvan-iom.
   //
   "tribhuvan-iom":
-    
+
     "https://th.bing.com/th/id/OIP.97VIS6CI6q0r8nLiqPjIqwHaFj?w=215&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
 };
 
@@ -115,7 +122,7 @@ function getUniversityImage(university) {
   // 1. Exact ID override
   if (
     UNIVERSITY_IMAGE_OVERRIDES[
-      directId
+    directId
     ]
   ) {
     return UNIVERSITY_IMAGE_OVERRIDES[
@@ -126,7 +133,7 @@ function getUniversityImage(university) {
   // 2. Normalized ID override
   if (
     UNIVERSITY_IMAGE_OVERRIDES[
-      normalizedId
+    normalizedId
     ]
   ) {
     return UNIVERSITY_IMAGE_OVERRIDES[
@@ -153,24 +160,6 @@ function getUniversityImage(university) {
 // =========================================================
 
 const kyrgyzstanUniversities = [
-  {
-    id: "kyrgyzstan-ihsm",
-    name: "International Higher School of Medicine",
-    country: "Kyrgyzstan",
-    city: "Bishkek",
-    image:
-      "https://th.bing.com/th/id/OIP.Sg0aEC4YLGauCD6krfC7RgHaFf?w=231&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    fallbackImage: ihsmImage,
-  },
-
-  {
-    id: "ksmu-kg",
-    name: "Kyrgyz State Medical Academy",
-    country: "Kyrgyzstan",
-    city: "Bishkek",
-    image:
-      "https://th.bing.com/th/id/OIP.cnbM7eiEOkgs1qI-4SusbAHaE7?w=255&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-  },
 
   {
     id: "kyrgyzstan-osh-state-university",
@@ -286,8 +275,8 @@ function UniversityImageCard({
 
   const imageToShow =
     imageError &&
-    fallbackImage &&
-    fallbackImage !==
+      fallbackImage &&
+      fallbackImage !==
       primaryImage
       ? fallbackImage
       : primaryImage;
@@ -496,13 +485,13 @@ export default function FeaturedUniversities() {
 
   const filteredUniversities =
     activeCountry ===
-    "All Universities"
+      "All Universities"
       ? uniqueUniversities
       : uniqueUniversities.filter(
-          (university) =>
-            university.country ===
-            activeCountry
-        );
+        (university) =>
+          university.country ===
+          activeCountry
+      );
 
   // =======================================================
   // FILTER TABS
@@ -516,9 +505,9 @@ export default function FeaturedUniversities() {
     ...countryFilterTabs.filter(
       (tab) =>
         tab !==
-          "All Universities" &&
+        "All Universities" &&
         tab !==
-          "Kyrgyzstan"
+        "Kyrgyzstan"
     ),
   ];
 
@@ -589,11 +578,10 @@ export default function FeaturedUniversities() {
                         tab
                       )
                     }
-                    className={`relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 select-none ${
-                      isActive
+                    className={`relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 select-none ${isActive
                         ? "text-white shadow-md shadow-[#0B2D5C]/15"
                         : "text-slate-600 hover:text-[#0B2D5C] bg-white hover:bg-slate-50 border border-slate-200/90 shadow-sm"
-                    }`}
+                      }`}
                   >
 
                     {isActive && (
@@ -626,7 +614,7 @@ export default function FeaturedUniversities() {
         <AnimatePresence mode="wait">
 
           {filteredUniversities.length >
-          0 ? (
+            0 ? (
 
             <motion.div
               key={activeCountry}

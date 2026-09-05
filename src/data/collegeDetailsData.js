@@ -120,6 +120,40 @@ export const collegeDetails = {
      KYRGYZSTAN
   ====================================================== */
 
+  ism: {
+    type: "International Medical School",
+    recognition: "NMC / WHO / FAIMER",
+    description:
+      "International School of Medicine (ISM) in Bishkek is Kyrgyzstan's premier medical institution offering 100% English-medium instruction and extensive clinical training.",
+    highlights: [
+      "Top Choice for Indian Students in Kyrgyzstan",
+      "100% English Medium Curriculum",
+      "Own Multi-profile Hospital and Clinical Bases",
+      "Indian Mess, Food and Dedicated Hostel Facilities",
+      "Strong Preparation for NExT / FMGE and USMLE",
+    ],
+    admission: "NEET Qualified / Direct",
+    duration: "5 Years",
+    medium: "English",
+  },
+
+  "kyrgyzstan-ism": {
+    type: "International Medical School",
+    recognition: "NMC / WHO / FAIMER",
+    description:
+      "International School of Medicine (ISM) in Bishkek is Kyrgyzstan's premier medical institution offering 100% English-medium instruction and extensive clinical training.",
+    highlights: [
+      "Top Choice for Indian Students in Kyrgyzstan",
+      "100% English Medium Curriculum",
+      "Own Multi-profile Hospital and Clinical Bases",
+      "Indian Mess, Food and Dedicated Hostel Facilities",
+      "Strong Preparation for NExT / FMGE and USMLE",
+    ],
+    admission: "NEET Qualified / Direct",
+    duration: "5 Years",
+    medium: "English",
+  },
+
   ihsm: {
     type: "International Medical School",
     recognition: "NMC / WHO / FAIMER",
